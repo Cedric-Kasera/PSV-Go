@@ -20,40 +20,48 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 const Routesearch = () => {
-      const [date, setDate] = useState();
+    const [date, setDate] = useState();
+    const [pickuplocation, setPickupLocation] = useState("");
+    const [destination, setDestination] = useState("");
+
+    const slug = `${pickuplocation}-to-${destination}`;
+    console.log("Slug:", slug);
 
     return (
-        <div className='flex gap-4 items-center justify-between p-10 border rounded-full font-bold '>
-            <Select>
-                
-                <SelectTrigger className="w-[250px] ">
-                    <SelectValue placeholder='Select destination'/>
-                </SelectTrigger>
-                <SelectContent >
-                    <SelectItem value="light">Nairobi</SelectItem>
-                    <SelectItem value="dark">Kisumu</SelectItem>
-                    <SelectItem value="system">Mombasa</SelectItem>
-                </SelectContent>
-            </Select>
-            <Select>
-                <SelectTrigger className="w-[250px]">
-                    <SelectValue placeholder="Select Destination" />
+        <div className='flex flex-col md:flex-row gap-4 items-center justify-between p-10 border rounded-lg font-bold '>
+            <Select onValueChange={(value) => setPickupLocation(value)}>
+                <SelectTrigger className="w-full md:w-[250px] h-[45px]">
+                    <SelectValue placeholder='Select Pickup Place' />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value="light">Mombasa</SelectItem>
-                    <SelectItem value="dark">Nairobi</SelectItem>
-                    <SelectItem value="system">Kisumu</SelectItem>
+                    <SelectItem value="nairobi">Nairobi</SelectItem>
+                    <SelectItem value="kisumu">Kisumu</SelectItem>
+                    <SelectItem value="mombasa">Mombasa</SelectItem>
                 </SelectContent>
             </Select>
+
+            <Select onValueChange={(value) => setDestination(value)}>
+                <SelectTrigger className="w-full md:w-[250px] h-[45px]">
+                    <SelectValue placeholder='Select Destination' />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="nairobi">Nairobi</SelectItem>
+                    <SelectItem value="kisumu">Kisumu</SelectItem>
+                    <SelectItem value="mombasa">Mombasa</SelectItem>
+                </SelectContent>
+            </Select>
+
 
             <Popover >
                 <PopoverTrigger asChild>
                     <Button
                         variant={"outline"}
                         className={cn(
-                            "w-[280px] justify-start text-left font-normal",
+                            "w-full md:w-[280px] justify-start text-left font-normal h-[45px]",
                             !date && "text-muted-foreground"
                         )}
                     >
@@ -71,11 +79,14 @@ const Routesearch = () => {
                 </PopoverContent>
             </Popover>
 
-            <Button variant="outline">
-                <Plus/>
+            <Button variant="outline" className='w-full md:w-[200px] justify-start text-left font-normal h-[45px]'>
+                <Plus />
                 Add return
-                </Button>
-            <Button className='bg-black text-pink-500'>Search</Button>
+            </Button>
+
+            <Link href={`/psv/${slug}`}>
+                <Button className='bg-black text-pink-500 w-full md:w-[200px] h-[45px]'>Search</Button>
+            </Link>
         </div>
     )
 }

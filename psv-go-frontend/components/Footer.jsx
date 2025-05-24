@@ -28,32 +28,6 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Shop</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li>
-                            <Link href="/shop" className="text-muted-foreground hover:text-primary">
-                                All Products
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/shop?category=clothing" className="text-muted-foreground hover:text-primary">
-                                Clothing
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/shop?category=electronics" className="text-muted-foreground hover:text-primary">
-                                Electronics
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/shop?category=home" className="text-muted-foreground hover:text-primary">
-                                Home & Kitchen
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
                     <h3 className="text-lg font-semibold mb-4">Account</h3>
                     <ul className="space-y-2 text-sm">
                         <li>

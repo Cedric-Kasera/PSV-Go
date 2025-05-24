@@ -72,9 +72,13 @@ export default function Navbar() {
                         <Search className="h-5 w-5" />
                     </Button>
 
-                    <Button>Login</Button>
+                    <Link href="/login">
+                        <Button>Login</Button>
+                    </Link>
 
-                    <Button>Register</Button>
+                    <Link href="/signup">
+                        <Button>Register</Button>
+                    </Link>
 
 
                 </div>

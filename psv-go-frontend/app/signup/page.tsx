@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
@@ -32,22 +32,29 @@ export default function SignupPage() {
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex flex-col items-center mb-8">
             <div className="mb-4">
-              <Image 
-                src="/images/psvgologo.png" 
-                alt="PSV Go Logo" 
-                width={150} 
+              <Image
+                src="/images/psvgologo.png"
+                alt="PSV Go Logo"
+                width={150}
                 height={100}
                 className="object-contain"
                 priority
               />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Create an Account</h1>
-            <p className="text-gray-600 text-center">Join PSV Go and start your journey with us</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Create an Account
+            </h1>
+            <p className="text-gray-600 text-center">
+              Join PSV Go and start your journey with us
+            </p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Username
               </label>
               <input
@@ -66,7 +73,10 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email Address
               </label>
               <input
@@ -82,7 +92,10 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Password
               </label>
               <input
@@ -98,7 +111,10 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Confirm Password
               </label>
               <input
@@ -125,11 +141,11 @@ export default function SignupPage() {
               </div>
               <div className="ml-3 text-sm">
                 <label htmlFor="terms" className="font-medium text-gray-700">
-                  I agree to the{' '}
+                  I agree to the{" "}
                   <a href="#" className="text-blue-600 hover:text-blue-500">
                     Terms of Service
-                  </a>{' '}
-                  and{' '}
+                  </a>{" "}
+                  and{" "}
                   <a href="#" className="text-blue-600 hover:text-blue-500">
                     Privacy Policy
                   </a>
@@ -147,14 +163,17 @@ export default function SignupPage() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Already have an account?{' '}
-              <Link href="/" className="font-medium text-blue-600 hover:text-blue-500">
+              Already have an account?{" "}
+              <Link
+                href="/login"
+                className="font-medium text-blue-600 hover:text-blue-500"
+              >
                 Sign in
               </Link>
             </p>
           </div>
         </div>
-        
+
         <div className="mt-6 text-center text-xs text-gray-500">
           <p> {new Date().getFullYear()} PSVGo. All rights reserved.</p>
         </div>
