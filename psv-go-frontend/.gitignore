@@ -38,3 +38,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuild.info
+psv-go-frontend\package-lock.json
+psv-go-frontend\package.json
