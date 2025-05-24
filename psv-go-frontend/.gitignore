@@ -37,5 +37,6 @@ yarn-error.log*
 .vercel
 
 # typescript
-*.tsbuildinfo
-next-env.d.ts
+*.tsbuild.info
+psv-go-frontend\package-lock.json
+psv-go-frontend\package.json
